@@ -1,3 +1,5 @@
+import math
+
 while True:
     num = int(input("Please enter a whole number (i.e. an integer): "))
     print(f"The number you entered is {num}.")
@@ -9,8 +11,7 @@ while True:
         print(f"{num} is an odd number.")
 
     # Check if the number has a perfect square root
-    #if int(num.sqrt(2)) == num.sqrt(2)
-    if int(num**0.5)**2 == num:
+    if int(math.sqrt(num)) == math.sqrt(num):
         print(f"{num} has a perfect square root.")
     else:
         print(f"{num} does not have a perfect square root.")
