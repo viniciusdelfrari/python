@@ -1,10 +1,10 @@
 import math
 
 while True:
-    num = int(input("Please enter a whole number (i.e. an integer): "))
+num = int(input("Please enter a whole number (i.e. an integer): "))
     print(f"The number you entered is {num}.")
 
-    # Check if the number is even or odd
+# Check if the number is even or odd
     if num % 2 == 0:
         print(f"{num} is an even number.")
     else:
