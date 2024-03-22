@@ -13,7 +13,7 @@ def find_factors(number):
 
 def main():
     while True:
-        num = int(input("\033[1mPlease enter a whole number (i.e. an integer): \033[0m"))
+        num = int(input("Please enter a whole number (i.e. an integer): "))
         
         print(f"The number you entered is {num}.")
         
@@ -30,7 +30,7 @@ def main():
         factors = find_factors(num)
         print(f"The factors of {num} are {', '.join(map(str, factors))}.")
         
-        choice = input("\033[1mWould you like to enter another number? (Y/n): \033[0m").strip().lower()
+        choice = input("Would you like to enter another number? (Y/n): ").strip().lower()
         if choice != 'y':
             print("Thank you for playing!")
             break
