@@ -4,7 +4,7 @@ def calculate_net_pay():
     
     gross_pay = hourly_wage * hours_worked
     
-    # Tax rates (these are just placeholders)
+    # Tax rates (placeholders)
     federal_tax_rate = 0.1
     state_tax_rate = 0.05
     social_security_rate = 0.062
@@ -20,6 +20,8 @@ def calculate_net_pay():
     print(f"State tax: ${state_tax:.2f}")
     print(f"Social security: ${social_security:.2f}")
     print(f"Net pay: ${net_pay:.2f}")
+    
+    return []  # Return an empty list of transactions
 
 def enter_revenue_or_expense():
     transactions = []
@@ -35,7 +37,7 @@ def enter_revenue_or_expense():
 def show_discretionary_income(revenues, expenses):
     total_revenue = sum(revenue for _, revenue in revenues)
     total_expense = sum(expense for _, expense in expenses)
-    discretionary_income = total_revenue - total_expense
+    discretionary_income = total_revenue + total_expense  
     print(f"\nTotal Revenue: ${total_revenue:.2f}")
     print(f"Total Expenses: ${total_expense:.2f}")
     print(f"Discretionary Income: ${discretionary_income:.2f}")
@@ -46,9 +48,11 @@ print("Welcome to My Finance!")
 menu_options = {
     '1': calculate_net_pay,
     '2': enter_revenue_or_expense,
-    '3': lambda: show_discretionary_income([], []),
+    '3': lambda: show_discretionary_income([transaction for transaction in transactions if transaction[1] > 0], [transaction for transaction in transactions if transaction[1] < 0]),
     '4': lambda: print("Thanks for using My Finance!")
 }
+
+transactions = []
 
 while True:
     print("\n1-Calculate net pay\n2-Enter revenue or expense\n3-Show discretionary income\n4-Exit")
@@ -57,7 +61,10 @@ while True:
     # Use the dictionary to call the corresponding function based on user's choice
     selected_option = menu_options.get(choice)
     if selected_option:
-        selected_option()
+        if choice == '3':
+            selected_option()
+        else:
+            transactions.extend(selected_option())
     else:
         print("Invalid choice. Please choose again.")
 
