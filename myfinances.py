@@ -44,7 +44,7 @@ def show_discretionary_income(revenues, expenses):
 
 print("Welcome to My Finance!")
 
-# Define a dictionary to map choices to corresponding functions
+# Define a dictionary 
 menu_options = {
     '1': calculate_net_pay,
     '2': enter_revenue_or_expense,
@@ -58,7 +58,7 @@ while True:
     print("\n1-Calculate net pay\n2-Enter revenue or expense\n3-Show discretionary income\n4-Exit")
     choice = input("Choice: ")
 
-    # Use the dictionary to call the corresponding function based on user's choice
+    # Use the dictionary 
     selected_option = menu_options.get(choice)
     if selected_option:
         if choice == '3':
