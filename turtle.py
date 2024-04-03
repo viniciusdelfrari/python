@@ -46,11 +46,16 @@ def main():
             chosen_color = colors[int(color_choice) - 1]
             draw_polygon(sides, side_length, lambda: chosen_color)
 
-        again = input("Do you want to draw another polygon? (yes/no): ")
-        if again.lower() != 'yes':
-            break
-
-    turtle.done()
+        while True:
+            again = input("Do you want to draw another polygon? (y/n): ")
+            if again.lower() == 'y':
+                turtle.reset()  # Clear the screen for a new draw
+                break
+            elif again.lower() == 'n':
+                turtle.done()
+                return
+            else:
+                print("Invalid input. Please enter 'y' or 'n'.")
 
 if __name__ == "__main__":
     main()
